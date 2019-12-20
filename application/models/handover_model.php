@@ -174,10 +174,12 @@ class Handover_model extends MY_Model
 
         return $this->db->query($query)->result_array();
     }
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function ItemHistory__model()
     {
-        $query = "SELECT date_format(a.created_at, '%Y-%m-%d') as created_att, a.created_at, a.trans_type, a.bin_code, b.description, b.uom, a.old_qty, a.qty, a.new_qty, a.reference, a.vendor, a.from_bin_code, a.to_bin_code, a.created_by
+        //a.created_at//,
+        $query = "SELECT date_format(a.created_at, '%Y-%m-%d') as created_att, a.item_code ,  a.trans_type, a.bin_code, b.description, b.uom, a.old_qty, a.qty, a.new_qty, a.reference, a.vendor,
+        a.spknbr, a.wonbr ,a.from_bin_code, a.to_bin_code, a.created_by
         FROM item_trans a
         JOIN item_master b ON a.item_code = b.item_code
         WHERE date_format(a.created_at, '%Y-%m-%d') = '2019-11-26'
@@ -186,10 +188,11 @@ class Handover_model extends MY_Model
 
         return $this->db->query($query)->result_array();
     }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public function ItemHistory__modelByDate($fr, $to)
     {
-        $this->db->select('a.created_at, date_format(a.created_at, \'%Y-%m-%d\')  as created_att, a.trans_type, a.bin_code, b.description, b.uom, a.old_qty, a.qty, a.new_qty, a.reference, a.vendor, a.from_bin_code, a.to_bin_code, a.created_by')
+        $this->db->select('a.created_at, date_format(a.created_at, \'%Y-%m-%d\')  as created_att, a.item_code, a.trans_type, a.bin_code, b.description, b.uom, a.old_qty, a.qty, a.new_qty, a.reference, a.vendor,a.spknbr, a.wonbr, a.from_bin_code, a.to_bin_code, a.created_by')
             ->from('item_trans a')
             ->join('item_master b', 'a.item_code = b.item_code')
             ->where('date_format(a.created_at, \'%Y-%m-%d\') >= ', $fr)

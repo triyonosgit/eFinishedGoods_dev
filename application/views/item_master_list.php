@@ -26,7 +26,7 @@
                     <th data-field="item_type" data-sortable="true" data-filter-control="select">Item Type</th>
                     <th data-field="category" data-sortable="true" data-filter-control="select">Category</th>
                     <th data-field="uom" data-sortable="true">UoM</th>
-                    <th data-field="enable" data-sortable="true" data-align="right">Aktif</th>
+                    <th data-field="enable" data-sortable="true">Aktif</th>
                     <th data-field="qty_eStockCard" data-formatter="numberFormatter" data-align="right" data-sortable="true">Qty</th>
                     <th data-field="item_codeold" data-sortable="true">Kd. Item Lama</th>
                     <!--<th data-field="qty_FINA" data-align="right" data-sortable="true">Qty FINA</th>-->

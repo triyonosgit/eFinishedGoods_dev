@@ -44,6 +44,7 @@
             <thead>
                 <tr>
                     <th>Tanggal</th>
+                    <th>Item</th>
                     <th>Trans Type</th>
                     <th>Bin Code</th>
                     <th>Description</th>
@@ -53,16 +54,19 @@
                     <th>New Qty</th>
                     <th>Reference</th>
                     <th>Vendor</th>
+                    <th>No.WO</th>
+                    <th>No.SPK</th>
                     <th>From Bin</th>
                     <th>To Bin</th>
                     <th>Created BY</th>
-                    <th>Created Time</th>
+                    <!-- <th>Created Time</th> -->
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($ItemHistory as $ih) : ?>
                     <tr>
                         <td><?= $ih['created_att'] ?></td>
+                        <td><?= $ih['item_code']; ?></td>
                         <td align="center"><?= $ih['trans_type'] ?></td>
                         <td><?= $ih['bin_code'] ?></td>
                         <td><?= $ih['description'] ?></td>
@@ -72,10 +76,12 @@
                         <td><?= $ih['new_qty'] ?></td>
                         <td><?= $ih['reference'] ?></td>
                         <td><?= $ih['vendor'] ?></td>
+                        <td><?= $ih['spknbr'] ?></td>
+                        <td><?= $ih['wonbr'] ?></td>
                         <td><?= $ih['from_bin_code'] ?></td>
                         <td><?= $ih['to_bin_code'] ?></td>
                         <td><?= $ih['created_by'] ?></td>
-                        <td><?= $ih['created_at'] ?></td>
+                        <!-- <td><= $ih['created_at'] ?></td> -->
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -165,7 +171,7 @@
                     title: 'Item History ' + frdate + ' sd ' + todate
                 },
                 'csvHtml5',
-
+                    
                 {
                     extend: 'pdfHtml5',
                     text: 'PDF',
@@ -174,7 +180,7 @@
                     orientation: 'landscape',
                     pageSize: 'A4',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
                     }
                 }
             ],
