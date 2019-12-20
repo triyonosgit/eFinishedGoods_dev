@@ -44,9 +44,9 @@
             <thead>
                 <tr>
                     <th>Tanggal</th>
-                    <th>Item</th>
-                    <th>Trans Type</th>
+                    <th>Tr type</th>
                     <th>Bin Code</th>
+                    <th>Item</th>
                     <th>Description</th>
                     <th>Uom</th>
                     <th>Old QTy</th>
@@ -66,9 +66,9 @@
                 <?php foreach ($ItemHistory as $ih) : ?>
                     <tr>
                         <td><?= $ih['created_att'] ?></td>
-                        <td><?= $ih['item_code']; ?></td>
                         <td align="center"><?= $ih['trans_type'] ?></td>
                         <td><?= $ih['bin_code'] ?></td>
+                        <td><?= $ih['item_code']; ?></td>
                         <td><?= $ih['description'] ?></td>
                         <td><?= $ih['uom'] ?></td>
                         <td><?= $ih['old_qty'] ?></td>
