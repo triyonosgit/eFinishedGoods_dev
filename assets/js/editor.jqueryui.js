@@ -47,9 +47,11 @@ Editor.defaults.display = "jqueryui";
 /*
  * Change the default classes from Editor to be classes for Bootstrap
  */
+var buttonClass = "btn ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only";
 $.extend( true, $.fn.dataTable.Editor.classes, {
 	form: {
-		button:  "btn ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+		button:  buttonClass,
+		buttonInternal:  buttonClass
 	}
 } );
 

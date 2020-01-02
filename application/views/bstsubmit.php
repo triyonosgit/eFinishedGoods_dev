@@ -57,7 +57,7 @@ $base_url = base_url();
 <script type="text/javascript" language="javascript" src="<?php echo base_url(); ?>assets/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        var data = '<?php print($jsonbstdata); ?>';
+        var data = <?php print($jsonbstdata); ?>;
         var bstnbr;
 
         // CARA LAIN LOAD DATA KE DATATABLES

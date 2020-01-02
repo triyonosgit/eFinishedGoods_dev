@@ -60,7 +60,8 @@ $.extend( true, $.fn.dataTable.Editor.classes, {
 		"msg-error":     "label alert"
 	},
 	form: {
-		button:  "button small"
+		button:  "button small",
+		buttonInternal:  "button small"
 	}
 } );
 
@@ -77,7 +78,7 @@ DataTable.Editor.display.foundation = $.extend( true, {}, DataTable.Editor.model
 	 */
 	"init": function ( dte ) {
 		self._dom.content = $(
-			'<div class="reveal reveal-modal" data-reveal />'
+			'<div class="reveal reveal-modal DTED" data-reveal />'
 		);
 		self._dom.close = $('<button class="close close-button">&times;</div>');
 
@@ -105,12 +106,12 @@ DataTable.Editor.display.foundation = $.extend( true, {}, DataTable.Editor.model
 		content.prepend( self._dom.close );
 
 		$(self._dom.content)
-			.one('opened.fndtn.reveal', function () {
+			.one('open.zf.reveal', function () {
 				if ( callback ) {
 					callback();
 				}
 			})
-			.one('closed.fndtn.reveal', function () {
+			.one('closed.zf.reveal', function () {
 				self._shown = false;
 			});
 
@@ -122,7 +123,7 @@ DataTable.Editor.display.foundation = $.extend( true, {}, DataTable.Editor.model
 				} );
 			}
 
-			$(self._dom.content).appendTo('body');
+			//$(self._dom.content).appendTo('body');
 			self._reveal.open();
 		}
 		else {
@@ -130,7 +131,10 @@ DataTable.Editor.display.foundation = $.extend( true, {}, DataTable.Editor.model
 			$(self._dom.content).foundation( 'reveal','open' );
 		}
 
-		$(document).on('click.dte-zf', 'div.reveal-modal-bg, div.reveal-overlay', function () {
+		$(document).on('click.dte-zf', 'div.reveal-modal-bg, div.reveal-overlay', function (e) {
+			if ( $(e.target).closest(self._dom.content).length ) {
+				return;
+			}
 			self._dte.background();
 		} );
 	},
