@@ -42,7 +42,7 @@ class Addhandover_model extends MY_Model
     }
 
     public function getNewBstNbr() {
-        $sql = " select concat(substring(year(now()), 3,2), month(now())) as str_yymm,
+        $sql = " select concat(substring(year(now()), 3,2), lpad(month(now()), 2, '0')) as str_yymm,
 					    IFNULL(LPAD(cast(max(substring(hvr_nbr, 5, 4)) + 1 as char), 4, '0'), '0001') as str_seq
 				   from hvr_mstr
 				  where hvr_nbr like concat(substring(year(now()), 3,2), '%') ";
