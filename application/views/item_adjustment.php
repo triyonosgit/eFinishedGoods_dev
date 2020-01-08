@@ -17,7 +17,7 @@
                                 'id'        => 'item_code',
                                 'name'      => 'item_code',
                                 'content'   => '<span class="glyphicon glyphicon-search" id="item_code_error"></span>',
-                                'onclick'   => "selectItem(this.id)"
+                                'onclick'   => "selectItm(this.id)"
                             )
                 ?>
                 <?php echo form_button($data) ?>
